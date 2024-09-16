@@ -20,6 +20,8 @@ namespace Lab_01.Files
 
         public long SizeBytes { get; set; }
 
+        public long FreeSpaceBytes { get; internal set; }
+
         public bool IsFile => Type == FileType.File;
         public bool IsFolder => Type == FileType.Folder;
         public bool IsDrive => Type == FileType.Drive;

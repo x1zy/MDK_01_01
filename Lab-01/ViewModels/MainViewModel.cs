@@ -4,6 +4,7 @@ using NamespaceHere;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,7 @@ namespace Lab_01.ViewModels
             {
                 // Open the file
                 MessageBox.Show($"Opening {path}");
+                Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
             }
 
             else if (path.IsDirectory())

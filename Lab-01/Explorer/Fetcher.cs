@@ -162,17 +162,21 @@ namespace Lab_01.Explorer
                 {
                     DriveInfo dInfo = new DriveInfo(drive);
 
-                    FileModel dModel = new FileModel()
+                    if (dInfo.IsReady)  // Проверяем, доступен ли диск
                     {
-                        Icon = IconHelper.GetIconOfFile(drive, true, true),
-                        Name = dInfo.Name,
-                        Path = dInfo.Name,
-                        DateModified = DateTime.Now,
-                        Type = FileType.Drive,
-                        SizeBytes = dInfo.TotalSize
-                    };
+                        FileModel dModel = new FileModel()
+                        {
+                            Icon = IconHelper.GetIconOfFile(drive, true, true),
+                            Name = dInfo.Name,
+                            Path = dInfo.Name,
+                            DateModified = DateTime.Now,
+                            Type = FileType.Drive,
+                            SizeBytes = dInfo.TotalSize,
+                            FreeSpaceBytes = dInfo.AvailableFreeSpace  // Добавляем свободное место
+                        };
 
-                    drives.Add(dModel);
+                        drives.Add(dModel);
+                    }
                 }
 
                 return drives;

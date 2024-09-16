@@ -28,8 +28,7 @@ namespace Lab_01
         {
             InitializeComponent();
             this.Model = new MainViewModel();
-
-            Model.TryNavigateToPath(@"D:\");
+            Model.TryNavigateToPath("");
         }
     }
 }
