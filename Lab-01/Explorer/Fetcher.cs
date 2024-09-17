@@ -17,17 +17,16 @@ namespace Lab_01.Explorer
             if (!directory.IsDirectory())
                 return files;
 
-            // for exception handling
+            // для работы с исключениями
             string currentFile = "";
 
-            // code for getting all files
+            // код для получения всех файлов
             try
             {
                 foreach (string file in Directory.GetFiles(directory))
                 {
                     currentFile = file;
 
-                    // Checks if it isn't an extension.
                     if (Path.GetExtension(file) != ".lnk")
                     {
                         FileInfo fInfo = new FileInfo(file);
@@ -52,21 +51,21 @@ namespace Lab_01.Explorer
             catch (IOException io)
             {
                 MessageBox.Show(
-                    $"IO Exception getting files in directory: {io.Message}",
-                    "Exception getting files in directory");
+                    $"IO Исключение при получении файлов в каталоге {io.Message}",
+                    "Исключение при получении файлов в каталоге");
             }
             catch (UnauthorizedAccessException noAccess)
             {
                 MessageBox.Show(
-                    $"No access for a file: {noAccess.Message}",
-                    "Exception getting files in directory");
+                    $"Нет доступа к файлу: {noAccess.Message}",
+                    "Исключение при получении файлов в каталоге");
             }
             catch (Exception e)
             {
                 MessageBox.Show(
-                    $"Failed to get files in '{directory}' || " +
-                    $"Something to do with '{currentFile}'\n" +
-                    $"Exception: {e.Message}", "Error");
+                    $"Не удалось получить файлы в '{directory}' || " +
+                    $"Что-то с '{currentFile}'\n" +
+                    $"Исключение: {e.Message}", "Error");
             }
 
             return files;
@@ -83,7 +82,7 @@ namespace Lab_01.Explorer
 
             try
             {
-                // Checks for normal directories
+                // проверяем наличие обычных каталогов
                 foreach (string dir in Directory.GetDirectories(directory))
                 {
                     currentDirectory = dir;
@@ -103,7 +102,7 @@ namespace Lab_01.Explorer
                     directories.Add(dModel);
                 }
 
-                // Checks for directory shortcuts
+                // проверяет наличие ярлыков в каталогах
                 foreach (string file in Directory.GetFiles(directory))
                 {
                     if (Path.GetExtension(file) == ".lnk")
@@ -131,21 +130,21 @@ namespace Lab_01.Explorer
             catch (IOException io)
             {
                 MessageBox.Show(
-                    $"IO Exception getting folders in directory: {io.Message}",
-                    "Exception getting folders in directory");
+                    $"IO Исключение при получении папок в каталоге:  {io.Message}",
+                    "Исключение при получении папок в каталоге»");
             }
             catch (UnauthorizedAccessException noAccess)
             {
                 MessageBox.Show(
-                    $"No access for a directory: {noAccess.Message}",
-                    "Exception getting folders in directory");
+                    $"Нет доступа к каталогу: {noAccess.Message}",
+                    "Исключение при получении папок в каталоге");
             }
             catch (Exception e)
             {
                 MessageBox.Show(
-                    $"Failed to get directories in '{directory}' || " +
-                    $"Something to do with '{currentDirectory}'\n" +
-                    $"Exception: {e.Message}", "Error");
+                    $"Не удалось получить каталоги в '{directory}' || " +
+                    $"Что-то связанное с '{currentDirectory}'\n" +
+                    $"Исключение: {e.Message}", "Ошибка");
             }
 
             return directories;
@@ -162,7 +161,7 @@ namespace Lab_01.Explorer
                 {
                     DriveInfo dInfo = new DriveInfo(drive);
 
-                    if (dInfo.IsReady)  // Проверяем, доступен ли диск
+                    if (dInfo.IsReady)  // проверяем, доступен ли диск
                     {
                         FileModel dModel = new FileModel()
                         {
@@ -172,7 +171,7 @@ namespace Lab_01.Explorer
                             DateModified = DateTime.Now,
                             Type = FileType.Drive,
                             SizeBytes = dInfo.TotalSize,
-                            FreeSpaceBytes = dInfo.AvailableFreeSpace  // Добавляем свободное место
+                            FreeSpaceBytes = dInfo.AvailableFreeSpace
                         };
 
                         drives.Add(dModel);
@@ -184,11 +183,11 @@ namespace Lab_01.Explorer
 
             catch (IOException io)
             {
-                MessageBox.Show($"IO Exception getting drives: {io.Message}", "Exception getting drives");
+                MessageBox.Show($"IO Исключение при получении дисков: {io.Message}", "Исключение при получении дисков");
             }
             catch (UnauthorizedAccessException noAccess)
             {
-                MessageBox.Show($"No access for a hard drive: {noAccess.Message}", "");
+                MessageBox.Show($"Нет доступа к жесткому диску: {noAccess.Message}");
             }
 
             return drives;

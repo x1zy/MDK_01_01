@@ -5,7 +5,6 @@ namespace Lab_01.Files
 {
     public class FileModel
     {
-        // Using icon because it's easier
         public Icon Icon { get; set; }
 
         public string Name { get; set; }

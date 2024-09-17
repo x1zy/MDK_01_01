@@ -25,7 +25,7 @@ namespace Lab_01.ViewModels
 
         public void TryNavigateToPath(string path)
         {
-            // is a drive
+            // это диск
             if (path == string.Empty)
             {
                 ClearFiles();
@@ -39,8 +39,7 @@ namespace Lab_01.ViewModels
 
             else if (path.IsFile())
             {
-                // Open the file
-                MessageBox.Show($"Opening {path}");
+                // открыть файл
                 Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
             }
 
@@ -59,11 +58,6 @@ namespace Lab_01.ViewModels
                     FilesControl fc = CreateFileControl(file);
                     AddFile(fc);
                 }
-            }
-
-            else
-            {
-                // something bad has happened...
             }
         }
 

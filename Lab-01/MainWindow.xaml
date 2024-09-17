@@ -5,8 +5,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Lab_01"
+    xmlns:viewmodels="clr-namespace:Lab_01.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
     mc:Ignorable="d"
-    Title="MainWindow"
+    Title="Микропроводник"
     Height="720"
     Width="1280"
     Style="{DynamicResource CustomWindowStyle}">
@@ -15,39 +17,39 @@
             VerticalAlignment="Top"
             Height="20">
             <TextBlock
-                Text="FileName"
+                Text="Имя"
                 VerticalAlignment="Center"
                 Margin="5,2,0,2" />
             <TextBlock
-                Text="Date Created"
+                Text="Дата создания"
                 VerticalAlignment="Center"
                 Margin="0,2,435,2"
                 HorizontalAlignment="Right"
                 Width="125"
                 TextAlignment="Center" />
             <TextBlock
-                Text="Date last Modified"
+                Text="Дата изменения"
                 VerticalAlignment="Center"
                 Margin="0,2,271,2"
                 HorizontalAlignment="Right"
                 Width="125"
                 TextAlignment="Center" />
             <TextBlock
-                Text="Type"
+                Text="Тип"
                 VerticalAlignment="Center"
                 Margin="0,2,179,2"
                 HorizontalAlignment="Right"
                 Width="70"
                 TextAlignment="Center" />
             <TextBlock
-                Text="Size"
+                Text="Размер"
                 VerticalAlignment="Center"
                 Margin="0,2,105,2"
                 HorizontalAlignment="Right"
                 Width="75"
                 TextAlignment="Center" />
             <TextBlock
-                Text="FreeSpace"
+                Text="Свободное пространство"
                 VerticalAlignment="Center"
                 Margin="0,2,15,2"
                 HorizontalAlignment="Right"

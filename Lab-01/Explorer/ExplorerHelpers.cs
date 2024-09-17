@@ -6,7 +6,7 @@ namespace Lab_01.Explorer
     public static class ExplorerHelpers
     {
         /// <summary>
-        /// Checks if the path is a file
+        /// проверяет, является ли путь файлом
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
@@ -16,7 +16,7 @@ namespace Lab_01.Explorer
         }
 
         /// <summary>
-        /// Checks if a path is a directory
+        /// проверяет, является ли путь каталогом
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
@@ -26,7 +26,7 @@ namespace Lab_01.Explorer
         }
 
         /// <summary>
-        /// Checks if a path is a drive
+        /// проверяет, является ли путь диском
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
@@ -36,7 +36,7 @@ namespace Lab_01.Explorer
         }
 
         /// <summary>
-        /// Gets the name of a file within a path
+        /// получает имя файла в пределах пути
         /// </summary>
         /// <param name="fullpath"></param>
         /// <returns></returns>
@@ -46,8 +46,8 @@ namespace Lab_01.Explorer
         }
 
         /// <summary>
-        /// Returns the directory path of the directory a file is located in
-        /// (e.g, C:\f1\fold2\f3\hello.txt, returns C:\f1\fold2\f3)
+        /// возвращает путь к директории, в которой находится файл
+        /// (например, C:\f1\f2\f3\hello.txt, возвращает C:\f1\f2\f3)
         /// </summary>
         /// <param name="fullpath"></param>
         /// <returns></returns>
@@ -57,7 +57,7 @@ namespace Lab_01.Explorer
         }
 
         /// <summary>
-        /// Checks if the path is a shortcut to a file
+        /// проверяет, является ли путь ярлыком к файлу.
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
@@ -67,7 +67,7 @@ namespace Lab_01.Explorer
         }
 
         /// <summary>
-        /// Gets the root path of a shortcut
+        /// получает корневой путь ярлыка
         /// </summary>
         /// <param name="shortcutFilename"></param>
         /// <returns></returns>

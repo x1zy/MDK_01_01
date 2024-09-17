@@ -10,6 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Новая папка\**" />
+    <EmbeddedResource Remove="Новая папка\**" />
+    <None Remove="Новая папка\**" />
+    <Page Remove="Новая папка\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <COMReference Include="Shell32">
       <WrapperTool>tlbimp</WrapperTool>
       <VersionMinor>0</VersionMinor>

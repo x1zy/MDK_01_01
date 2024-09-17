@@ -13,9 +13,6 @@ using System.Windows.Shapes;
 
 namespace Lab_01
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainViewModel Model
@@ -26,7 +23,6 @@ namespace Lab_01
 
         public MainWindow()
         {
-            InitializeComponent();
             this.Model = new MainViewModel();
             Model.TryNavigateToPath("");
         }

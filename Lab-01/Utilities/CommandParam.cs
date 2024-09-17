@@ -61,6 +61,6 @@ namespace NamespaceHere
             _execute(parameter);
         }
 
-        #endregion // ICommand Members
+        #endregion
     }
 }
