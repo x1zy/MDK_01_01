@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Lab_01.Model;
 
-namespace Lab_01.Files
+namespace Lab_01.View
 {
     /// <summary>
     /// Interaction logic for FilesControl.xaml

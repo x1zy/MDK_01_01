@@ -15,50 +15,53 @@
     <Grid>
         <Grid
             VerticalAlignment="Top"
-            Height="20">
+            Height="40">
             <TextBlock
                 Text="Имя"
-                VerticalAlignment="Center"
-                Margin="5,2,0,2" />
+                VerticalAlignment="Bottom"
+                Margin="5,0,0,0"
+                Height="28" />
             <TextBlock
                 Text="Дата создания"
                 VerticalAlignment="Center"
-                Margin="0,2,435,2"
-                HorizontalAlignment="Right"
+                Margin="724,0,0,0"
+                HorizontalAlignment="Left"
                 Width="125"
                 TextAlignment="Center" />
             <TextBlock
                 Text="Дата изменения"
                 VerticalAlignment="Center"
-                Margin="0,2,271,2"
+                Margin="0,2,273,2"
                 HorizontalAlignment="Right"
                 Width="125"
                 TextAlignment="Center" />
             <TextBlock
                 Text="Тип"
                 VerticalAlignment="Center"
-                Margin="0,2,179,2"
+                Margin="0,2,181,2"
                 HorizontalAlignment="Right"
                 Width="70"
                 TextAlignment="Center" />
             <TextBlock
                 Text="Размер"
                 VerticalAlignment="Center"
-                Margin="0,2,105,2"
-                HorizontalAlignment="Right"
+                Margin="1106,0,0,0"
+                HorizontalAlignment="Left"
                 Width="75"
-                TextAlignment="Center" />
+                TextAlignment="Center"
+                Height="16" />
             <TextBlock
                 Text="Свободное пространство"
                 VerticalAlignment="Center"
-                Margin="0,2,15,2"
-                HorizontalAlignment="Right"
-                Width="75"
-                TextAlignment="Center" />
+                Margin="1190,8,0,0"
+                HorizontalAlignment="Left"
+                Width="88"
+                TextAlignment="Center"
+                Height="40" />
         </Grid>
         <ListBox
             ItemsSource="{Binding FileItems, UpdateSourceTrigger=PropertyChanged}"
             HorizontalContentAlignment="Stretch"
-            Margin="0,20,0,0" />
+            Margin="0,40,0,0" />
     </Grid>
 </Window>

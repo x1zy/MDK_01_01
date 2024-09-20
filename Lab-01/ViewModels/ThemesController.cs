@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Lab_01.Model;
 
-namespace Notepad2.Themes
+namespace Lab_01.ViewModels
 {
     public static class ThemesController
     {
         private static ResourceDictionary ThemeDictionary
         {
-            // You could probably get it via its name with some query logic as well.
+            // можно получить его по имени с помощью логики запроса.
             get { return Application.Current.Resources.MergedDictionaries[0]; }
             set { Application.Current.Resources.MergedDictionaries[0] = value; }
         }
@@ -34,7 +35,7 @@ namespace Notepad2.Themes
             try
             {
                 if (!string.IsNullOrEmpty(themeName))
-                    ChangeTheme(new Uri($"Themes/{themeName}.xaml", UriKind.Relative));
+                    ChangeTheme(new Uri($"View/{themeName}.xaml", UriKind.Relative));
             }
             catch { }
         }

@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 
-namespace Themes.ThemesFolder
+namespace View.ViewFolder
 {
-    public partial class LightTheme
+    public partial class ColourfulLightTheme
     {
         private void CloseWindow_Event(object sender, RoutedEventArgs e)
         {

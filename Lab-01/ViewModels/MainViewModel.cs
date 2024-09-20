@@ -1,6 +1,6 @@
 ﻿using Lab_01.Explorer;
-using Lab_01.Files;
-using NamespaceHere;
+using Lab_01.Model;
+using Lab_01.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

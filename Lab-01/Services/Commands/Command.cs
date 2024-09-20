@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace NamespaceHere
+namespace Lab_01.Services.Commands
 {
     public class Command : ICommand
     {

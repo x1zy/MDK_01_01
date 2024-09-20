@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_01.Files
+namespace Lab_01.Model
 {
     public enum FileType
     {

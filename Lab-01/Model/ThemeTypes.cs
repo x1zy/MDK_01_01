@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Notepad2.Themes
+namespace Lab_01.Model
 {
     public enum ThemeTypes
     {
