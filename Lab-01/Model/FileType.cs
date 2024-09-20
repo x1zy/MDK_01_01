@@ -8,7 +8,7 @@ namespace Lab_01.Model
 {
     public enum FileType
     {
-        File, Folder, Drive,
-        Shortcut
+        Файл, Папка, Диск,
+        Ярлык
     }
 }

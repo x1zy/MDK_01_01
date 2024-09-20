@@ -20,5 +20,6 @@ namespace Lab_01.Model
         public long SizeBytes { get; set; }
 
         public long FreeSpaceBytes { get; internal set; }
+        public bool IsDrive { get; set; }
     }
 }

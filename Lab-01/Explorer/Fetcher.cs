@@ -37,7 +37,7 @@ namespace Lab_01.Explorer
                             Path = fInfo.FullName,
                             DateCreated = fInfo.CreationTime,
                             DateModified = fInfo.LastWriteTime,
-                            Type = FileType.File,
+                            Type = FileType.Файл,
                             SizeBytes = fInfo.Length
                         };
 
@@ -95,7 +95,7 @@ namespace Lab_01.Explorer
                         Path = dInfo.FullName,
                         DateCreated = dInfo.CreationTime,
                         DateModified = dInfo.LastWriteTime,
-                        Type = FileType.Folder,
+                        Type = FileType.Папка,
                         SizeBytes = long.MaxValue
                     };
 
@@ -116,8 +116,7 @@ namespace Lab_01.Explorer
                             Path = dInfo.FullName,
                             DateCreated = dInfo.CreationTime,
                             DateModified = dInfo.LastWriteTime,
-                            Type = FileType.Folder,
-                            SizeBytes = 0
+                            Type = FileType.Папка
                         };
 
                         directories.Add(dModel);
@@ -169,7 +168,7 @@ namespace Lab_01.Explorer
                             Name = dInfo.Name,
                             Path = dInfo.Name,
                             DateModified = DateTime.Now,
-                            Type = FileType.Drive,
+                            Type = FileType.Диск,
                             SizeBytes = dInfo.TotalSize,
                             FreeSpaceBytes = dInfo.AvailableFreeSpace
                         };
