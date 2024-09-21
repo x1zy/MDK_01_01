@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Lab_01.Services.Commands;
 
 namespace Lab_01
 {
@@ -24,7 +25,7 @@ namespace Lab_01
         public MainWindow()
         {
             this.Model = new MainViewModel();
-            Model.TryNavigateToPath("");
+            Model.LoadFilesFromPath("");
         }
     }
 }

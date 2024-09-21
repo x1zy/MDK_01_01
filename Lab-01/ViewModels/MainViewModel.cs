@@ -9,73 +9,89 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
+using Lab_01.Services.Commands;
+using System.IO;
 
 namespace Lab_01.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
         public ObservableCollection<FilesControl> FileItems { get; set; }
+        private readonly IDirectoryHistory _directoryHistory;
 
         public MainViewModel()
         {
             FileItems = new ObservableCollection<FilesControl>();
+            _directoryHistory = new DirectoryHistory("rootPath", "Root");
+
+            NavigateBackCommand = new RelayCommand(MoveBack, (param) => _directoryHistory.CanMoveBack);
+            NavigateForwardCommand = new RelayCommand(MoveForward, (param) => _directoryHistory.CanMoveForward);
+            _directoryHistory.HistoryChanged += (s, e) =>
+            {
+                (NavigateBackCommand as RelayCommand)?.RaiseCanExecuteChanged();
+                (NavigateForwardCommand as RelayCommand)?.RaiseCanExecuteChanged();
+            };
+
+            // Загружаем корневые директории при инициализации
+            LoadFilesFromPath("");
         }
 
-        #region Navigation
+        public RelayCommand NavigateBackCommand { get; }
+        public RelayCommand NavigateForwardCommand { get; }
 
-        public void TryNavigateToPath(string path)
+        private void MoveBack(object param)
         {
-            // это диск
-            if (path == string.Empty)
+            if (_directoryHistory.CanMoveBack)
             {
-                ClearFiles();
+                _directoryHistory.MoveBack();
+                LoadFilesFromPath(_directoryHistory.Current.DirectoryPath);
+            }
+        }
 
-                foreach(FileModel drive in Fetcher.GetDrives())
+        private void MoveForward(object param)
+        {
+            if (_directoryHistory.CanMoveForward)
+            {
+                _directoryHistory.MoveForward();
+                LoadFilesFromPath(_directoryHistory.Current.DirectoryPath);
+            }
+        }
+
+        public void LoadFilesFromPath(string path)
+        {
+            ClearFiles();
+
+            if (string.IsNullOrEmpty(path))
+            {
+                foreach (var drive in Fetcher.GetDrives())
                 {
-                    FilesControl fc = CreateFileControl(drive);
-                    AddFile(fc);
+                    AddFile(CreateFileControl(drive));
                 }
             }
+            else if (path.IsDirectory())
+            {
+                foreach (var dir in Fetcher.GetDirectories(path))
+                {
+                    AddFile(CreateFileControl(dir));
+                }
 
+                foreach (var file in Fetcher.GetFiles(path))
+                {
+                    AddFile(CreateFileControl(file));
+                }
+            }
             else if (path.IsFile())
             {
-                // открыть файл
                 Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
             }
 
-            else if (path.IsDirectory())
-            {
-                ClearFiles();
-
-                foreach(FileModel dir in Fetcher.GetDirectories(path))
-                {
-                    FilesControl fc = CreateFileControl(dir);
-                    AddFile(fc);
-                }
-
-                foreach (FileModel file in Fetcher.GetFiles(path))
-                {
-                    FilesControl fc = CreateFileControl(file);
-                    AddFile(fc);
-                }
-            }
+            _directoryHistory.Add(path, Path.GetFileName(path));
         }
-
-        public void NavigateFromModel(FileModel file)
-        {
-            TryNavigateToPath(file.Path);
-        }
-
-        #endregion
 
         public void AddFile(FilesControl file)
         {
             FileItems.Add(file);
-        }
-
-        public void RemoveFile(FilesControl file)
-        {
-            FileItems.Remove(file);
         }
 
         public void ClearFiles()
@@ -83,16 +99,17 @@ namespace Lab_01.ViewModels
             FileItems.Clear();
         }
 
-        public FilesControl CreateFileControl(FileModel fModel)
+        private FilesControl CreateFileControl(FileModel fileModel)
         {
-            FilesControl fc = new FilesControl(fModel);
-            SetupFileControlCallbacks(fc);
-            return fc;
+            var fileControl = new FilesControl(fileModel);
+            fileControl.NavigateToPathCallback = NavigateFromModel;
+            return fileControl;
         }
 
-        public void SetupFileControlCallbacks(FilesControl fc)
+        private void NavigateFromModel(FileModel fileModel)
         {
-            fc.NavigateToPathCallback = NavigateFromModel;
+            LoadFilesFromPath(fileModel.Path);
         }
     }
+
 }
