@@ -1,0 +1,36 @@
+﻿<Window x:Class="Laboratornaya_3_MVVM_Triangle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Laboratornaya_3_MVVM_Triangle"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel
+            Margin="10">
+            <TextBlock
+                Text="Длина стороны A:" />
+            <!-- Binding соединяет текстовое поле со свойством VM-->
+            <!-- Свойство UpdateSourceTrigger выполняет передачу значения в V< в момент ввода -->
+            <TextBox
+                Text="{Binding Model.SideA, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock
+                Text="Длина стороны B:" />
+            <TextBox
+                Text="{Binding Model.SideB, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock
+                Text="Длина стороны C:" />
+            <TextBox
+                Text="{Binding Model.SideC, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock
+                Text="Результат:"
+                Margin="0,10,0,0" />
+            <TextBox
+                Text="{Binding Model.Result, Mode=OneWay}"
+                IsReadOnly="True"
+                Height="100"
+                VerticalScrollBarVisibility="Auto" />
+        </StackPanel>
+    </Grid>
+</Window>

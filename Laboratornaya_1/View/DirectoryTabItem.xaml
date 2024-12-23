@@ -7,17 +7,7 @@
     mc:Ignorable="d"
         Title="DirectoryTabItem" Height="450" Width="800">
     <Grid>
-
-        <Grid.RowDefinitions>
-            <RowDefinition
-                Height="Auto" />
-            <RowDefinition
-                Height="*" />
-        </Grid.RowDefinitions>
-
-
         <ListBox
-            Grid.Row="1"
             ItemsSource="{Binding DirectoriesAndFiles}"
             SelectedItem="{Binding SelectedFileEntity}">
 

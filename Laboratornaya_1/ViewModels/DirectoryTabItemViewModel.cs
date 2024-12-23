@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Laboratornaya_1.History;
 using Laboratornaya_1.Entities;
 using Laboratornaya_1.Commands;
+using System.Windows;
 
 namespace Laboratornaya_1.ViewModels
 {
@@ -46,7 +47,7 @@ namespace Laboratornaya_1.ViewModels
 
         public DirectoryTabItemViewModel()
         {
-            _history = new DirectoryHistory("Мой компьютер", "Мой компьютер");
+            _history = new DirectoryHistory("Этот компьютер", "Этот компьютер");
 
             OpenCommand = new DelegateCommand(Open);
             MoveBackCommand = new DelegateCommand(OnMoveBack, OnCanMoveBack);
@@ -113,7 +114,7 @@ namespace Laboratornaya_1.ViewModels
         {
             DirectoriesAndFiles.Clear();
 
-            if (Name == "Мой компьютер")
+            if (Name == "Этот компьютер")
             {
                 foreach (var logicalDrive in Directory.GetLogicalDrives())
                     DirectoriesAndFiles.Add(new DirectoryViewModel(logicalDrive));
@@ -123,14 +124,27 @@ namespace Laboratornaya_1.ViewModels
 
             var directoryInfo = new DirectoryInfo(FilePath);
 
-            foreach (var directory in directoryInfo.GetDirectories())
+            try
             {
-                DirectoriesAndFiles.Add(new DirectoryViewModel(directory));
-            }
+                foreach (var directory in directoryInfo.GetDirectories())
+                {
+                    DirectoriesAndFiles.Add(new DirectoryViewModel(directory));
+                }
 
-            foreach (var fileInfo in directoryInfo.GetFiles())
+                foreach (var fileInfo in directoryInfo.GetFiles())
+                {
+                    DirectoriesAndFiles.Add(new FileViewModel(fileInfo));
+                }
+            }
+            catch (UnauthorizedAccessException ex)
             {
-                DirectoriesAndFiles.Add(new FileViewModel(fileInfo));
+                // Логирование или отображение ошибки
+                MessageBox.Show($"Нет доступа к папке: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                // Обработка других ошибок
+                MessageBox.Show($"Ошибка при открытии папки: {ex.Message}");
             }
         }
 

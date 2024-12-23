@@ -1,0 +1,79 @@
+﻿<Window x:Class="Check.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Check"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1280">
+    <Grid>
+        <Grid.RowDefinitions>
+            
+            <RowDefinition
+                Height="3" />
+            <RowDefinition
+                Height="0.075*" />
+            <RowDefinition
+                Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="230" />
+            <ColumnDefinition
+                MinWidth="425" />
+            <ColumnDefinition
+                Width="Auto" />
+            <ColumnDefinition
+                MinWidth="425" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="0"
+            Text="Диск"
+            Margin="20 0 0 10"
+            VerticalAlignment="Bottom" />
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="1"
+            Text="Каталоги"
+            Margin="0 0 0 10"
+            VerticalAlignment="Bottom" />
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="3"
+            Text="Список файлов"
+            Margin="0 0 0 10"
+            VerticalAlignment="Bottom" />
+
+        <ComboBox
+            Grid.Row="3"
+            Grid.Column="0"
+            Name="disksList"
+            Height="25"
+            VerticalAlignment="Top"
+            Margin="20 0 20 0"
+            SelectionChanged="ShowDiskInfo" />
+
+        <ListBox
+            Grid.Row="3"
+            Grid.Column="1"
+            Name="catalogsList"
+            BorderBrush="#808080"
+            SelectionChanged="ShowListFiles" />
+
+        <GridSplitter
+            Grid.Row="3"
+            Grid.Column="2"
+            Width="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Stretch" />
+        <ListBox
+            Grid.Row="3"
+            Grid.Column="3"
+            Name="filesList"
+            BorderBrush="#808080"
+            SelectionChanged="OpenFile" />
+    </Grid>
+
+</Window>

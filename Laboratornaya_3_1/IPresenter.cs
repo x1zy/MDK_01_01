@@ -1,6 +1,6 @@
 namespace Laboratornaya_3_1;
 
-public class IPresenter
+public interface IPresenter
 {
-    
+    void Calculate();
 }

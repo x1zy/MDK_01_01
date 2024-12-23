@@ -1,0 +1,103 @@
+﻿<Window x:Class="Laboratornaya_2_8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Laboratornaya_2_8"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush
+            ImageSource="C:\Users\Mi\Downloads\bg-blue.png"
+            Stretch="UniformToFill" />
+    </Window.Background>
+    <Grid
+        Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="Auto" />
+            <!-- Первая дробь -->
+            <RowDefinition
+                Height="Auto" />
+            <!-- Вторая дробь -->
+            <RowDefinition
+                Height="Auto" />
+            <!-- Кнопка -->
+            <RowDefinition
+                Height="*" />
+            <!-- Результаты -->
+        </Grid.RowDefinitions>
+
+        <!-- Первая дробь -->
+        <GroupBox
+            Header="Первая дробь"
+            Grid.Row="0"
+            Margin="0,0,0,10"
+            FontSize="24"
+            Foreground="White">
+            <StackPanel
+                Orientation="Horizontal"
+                Margin="10">
+                <TextBox
+                    Name="Fraction1Numerator"
+                    Width="50"
+                    Margin="5" />
+                <TextBlock
+                    Text="/"
+                    VerticalAlignment="Center"
+                    Margin="5,0" />
+                <TextBox
+                    Name="Fraction1Denominator"
+                    Width="50"
+                    Margin="5" />
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Вторая дробь -->
+        <GroupBox
+            Header="Вторая дробь"
+            Grid.Row="1"
+            Margin="0,0,0,10"
+            FontSize="24"
+            Foreground="White">
+            <StackPanel
+                Orientation="Horizontal"
+                Margin="10">
+                <TextBox
+                    Name="Fraction2Numerator"
+                    Width="50"
+                    Margin="5"
+                     />
+                <TextBlock
+                    Text="/"
+                    VerticalAlignment="Center"
+                    Margin="5,0" />
+                <TextBox
+                    Name="Fraction2Denominator"
+                    Width="50"
+                    Margin="5"
+                     />
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Кнопка "Вычислить" -->
+        <Button
+            Content="Вычислить"
+            FontSize="24"
+            Grid.Row="2"
+            Width="300"
+            Height="50"
+            Background="White"
+            HorizontalAlignment="Center"
+            Click="Calculate_Click"
+            Margin="0,0,0,10" />
+
+        <!-- Поле для вывода результатов -->
+        <TextBlock
+            Name="ResultText"
+            Foreground="White"
+            Grid.Row="3"
+            FontSize="32"
+            TextWrapping="Wrap" />
+    </Grid>
+</Window>

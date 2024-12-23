@@ -29,6 +29,8 @@
                 Height="30"
                 Margin="150, 0, 0, 0"
                 Command="{Binding CurrentDirectoryTabItem.MoveForwardCommand}" />
+            <TextBlock
+                Text="{Binding CurrentDirectoryTabItem.FilePath}" />
         </StackPanel>
         <Grid
             VerticalAlignment="Top"
@@ -77,8 +79,9 @@
                 Height="40" />
         </Grid>
         <ListBox
-            ItemsSource="{Binding DirectoryTabItems, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{Binding FileItems, UpdateSourceTrigger=PropertyChanged}"
             HorizontalContentAlignment="Stretch"
             Margin="0,40,0,0" />
+
     </Grid>
 </Window>

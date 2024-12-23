@@ -1,0 +1,128 @@
+﻿<Window x:Class="Laboratornaya_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Laboratornaya_2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1920">
+    <Window.Background>
+        <ImageBrush
+            ImageSource="C:\Users\Mi\source\repos\MDK_01_01\Laboratornaya_2\img\bg.jpg"
+            Stretch="UniformToFill" />
+    </Window.Background>
+    <Grid
+        Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="200" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="Auto" />
+            <ColumnDefinition
+                Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Content="Треугольники"
+            Foreground="White"
+            FontSize="32"
+            FontWeight="Bold"
+            VerticalAlignment="Center"
+            HorizontalContentAlignment="Center"
+            Margin="0,5" />
+        <!-- Сторона a -->
+        <Label
+            Grid.Row="1"
+            Grid.Column="0"
+            Content="Сторона a:"
+            Foreground="White"
+            FontSize="32"
+            FontWeight="Bold"
+            VerticalAlignment="Center"
+            Margin="0,5" />
+        <TextBox
+            Grid.Row="1"
+            Grid.Column="1"
+            Name="SideATextBox"
+            Margin="0" 
+            Height="32"
+            FontSize="24"
+            PreviewTextInput="TextBox_PreviewTextInput" />
+
+        <!-- Сторона b -->
+        <Label
+            Grid.Row="2"
+            Grid.Column="0"
+            Content="Сторона b:"
+            Foreground="White"
+            FontSize="32"
+            FontWeight="Bold"
+            VerticalAlignment="Center"
+            Margin="0,5" />
+        <TextBox
+            Grid.Row="2"
+            Grid.Column="1"
+            Name="SideBTextBox"
+            Margin="5"
+            Height="32"
+            FontSize="24"
+            PreviewTextInput="TextBox_PreviewTextInput" />
+
+        <!-- Сторона c -->
+        <Label
+            Grid.Row="3"
+            Grid.Column="0"
+            Content="Сторона c:"
+            Foreground="White"
+            FontSize="32"
+            FontWeight="Bold"
+            VerticalAlignment="Center"
+            Margin="0,5" />
+        <TextBox
+            Grid.Row="3"
+            Grid.Column="1"
+            Name="SideCTextBox"
+            Margin="5"
+            Height="32"
+            FontSize="24"
+            PreviewTextInput="TextBox_PreviewTextInput"/>
+
+        <!-- Кнопка вычисления -->
+        <Button
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Width="200"
+            Height="50"
+            Content="Вычислить"
+            Click="CalculateButton_Click"
+            Margin="0,10" 
+            FontSize="24"/>
+
+        <!-- Область для отображения результатов -->
+        <TextBox
+            Grid.Row="5"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Name="ResultTextBox"
+            Margin="0,10"
+            IsReadOnly="True"
+            TextWrapping="Wrap"
+            VerticalScrollBarVisibility="Auto"
+            FontSize="24"/>
+    </Grid>
+</Window>
